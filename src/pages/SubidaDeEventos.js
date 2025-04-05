@@ -194,7 +194,7 @@ function SubidaDeEventos() {
             <div key={event._id} className="event-card">
               {event.imagePath ? (
                 <img
-                  src={`https://tienda-backend-eta.vercel.app/${event.imagePath.replace(
+                  src={`${event.imagePath.replace(
                     /\\/g,
                     "/"
                   )}`}
