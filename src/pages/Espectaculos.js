@@ -37,7 +37,34 @@ const Espectaculos = ({ carrito, setCarrito, setMostrarCarrito }) => {
       timerProgressBar: true,
     });
   };
-  
+    function formatDay(dateString) {
+    if (!dateString) return "Próximamente";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("es-AR", { weekday: "short" });
+  }
+
+  function formatDayNumber(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.getDate().toString().padStart(2, "0");
+  }
+
+  function formatYear(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.getFullYear();
+  }
+
+  const handleShare = (evento) => {
+    const url = window.location.href; // podés personalizar el link al evento si tenés uno
+    const mensaje = `*¡Vení a disfrutar conmigo!*\n\nTe comparto este evento:\n"${
+      evento.title
+    }"\n\nFecha: ${formatDay(evento?.date)} ${formatDayNumber(
+      evento?.date
+    )} de ${formatYear(evento?.date)}\n\n_Conseguí tu entrada ya_: ${url}`;
+    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
+    window.open(whatsappURL, "_blank");
+  };
 
   const indiceUltimo = paginaActual * eventosPorPagina;
   const indicePrimero = indiceUltimo - eventosPorPagina;
@@ -80,6 +107,10 @@ const Espectaculos = ({ carrito, setCarrito, setMostrarCarrito }) => {
                 >
                   Agregar al Carrito 🛒
                 </button>
+                    <button
+  onClick={() => handleShare(evento)}
+  className="share-button"
+>📲 Compartir por WhatsApp</button>
               </div>
             ))}
           </div>
