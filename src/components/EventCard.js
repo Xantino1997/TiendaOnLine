@@ -39,7 +39,7 @@ const EventCard = ({ event, onAddToCart }) => {
 
     const handleShare = () => {
       const url = window.location.href; // podés personalizar el link al evento si tenés uno
-      const mensaje = `*¡Vení a disfrutar conmigo!*\n\nTe comparto este evento:\n"${event.title}"\n\nFecha: ${formatDay(event?.date)} ${formatDayNumber(event?.date)} de ${formatYear(event?.date)}\n\n_Conseguí tu entrada ya_: ${url}`;
+      const mensaje = `*¡Vení a disfrutar conmigo!*\n\nTe comparto este evento:\n"${event.title}"\n\nFecha: ${formatDay(event?.date)} ${formatDayNumber(event?.date)} de ${formatYear(event?.date)}\n\n_Conseguí tu entrada ya_: ${url}\n\nLos Mejores Shows los tenés con Mi Entrada Ya`;
       const whatsappURL = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
       window.open(whatsappURL, "_blank");
     };
