@@ -33,7 +33,7 @@ const HomePage = ({ carrito, setCarrito }) => {
   useEffect(() => {
     const fetchEventos = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/eventos");
+        const res = await fetch("https://tienda-backend-eta.vercel.app/api/eventos");
         const data = await res.json();
         setEventos(data);
       } catch (err) {
@@ -83,7 +83,7 @@ const HomePage = ({ carrito, setCarrito }) => {
               key={event._id}
               event={{
                 ...event,
-                image: `http://localhost:5000/${event.imagePath}`,
+                image: `https://tienda-backend-eta.vercel.app/${event.imagePath}`,
               }}
               onAddToCart={handleAgregarAlCarrito}
             />
