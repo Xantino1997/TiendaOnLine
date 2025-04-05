@@ -73,13 +73,7 @@
     box-shadow: 0 0 12px rgba(19, 9, 124, 0.7); /* efecto de luz violeta */
     transition: background-color 0.3s, box-shadow 0.3s;
   }
-  
-  .navbar-toggle:hover {
-    background-color: #ba68c8; /* violeta más claro al pasar el mouse */
-    box-shadow: 0 0 16px rgba(186, 104, 200, 0.9);
-  }
-  
-  
+    
   /* Responsive */
   @media screen and (max-width: 768px) {
     .navbar-menu {
