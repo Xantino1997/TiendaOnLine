@@ -61,7 +61,7 @@ const Espectaculos = ({ carrito, setCarrito, setMostrarCarrito }) => {
       evento.title
     }"\n\nFecha: ${formatDay(evento?.date)} ${formatDayNumber(
       evento?.date
-    )} de ${formatYear(evento?.date)}\n\n_Conseguí tu entrada ya_: ${url}`;
+    )} de ${formatYear(evento?.date)}\n\n_Conseguí tu entrada ya_: ${url}\n\nLos Mejores Shows los tenés con Mi Entrada Ya`;
     const whatsappURL = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
     window.open(whatsappURL, "_blank");
   };
