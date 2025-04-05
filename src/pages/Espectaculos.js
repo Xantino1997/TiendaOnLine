@@ -9,7 +9,7 @@ const Espectaculos = ({ carrito, setCarrito, setMostrarCarrito }) => {
   const eventosPorPagina = 3;
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/eventos")
+    fetch("https://tienda-backend-eta.vercel.app/api/eventos")
       .then((res) => res.json())
       .then((data) => {
         const filtrados = data.filter(
@@ -65,7 +65,7 @@ const Espectaculos = ({ carrito, setCarrito, setMostrarCarrito }) => {
             {eventosActuales.map((evento, index) => (
               <div key={index} className="espectaculo-card">
                 <img
-                  src={`http://localhost:5000/${evento.imagePath}`}
+                  src={`https://tienda-backend-eta.vercel.app/${evento.imagePath}`}
                   alt={evento.title}
                   className="espectaculo-image"
                 />
