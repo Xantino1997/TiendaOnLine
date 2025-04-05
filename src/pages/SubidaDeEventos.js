@@ -19,7 +19,7 @@ function SubidaDeEventos() {
   const [eventoEditando, setEventoEditando] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/eventos")
+    fetch("https://tienda-backend-eta.vercel.app/api/eventos")
       .then((res) => res.json())
       .then((data) => setEventos(data))
       .catch((err) => console.error("Error cargando eventos:", err));
@@ -37,7 +37,7 @@ function SubidaDeEventos() {
 
     if (result.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:5000/api/eventos/${id}`, {
+        const res = await fetch(`https://tienda-backend-eta.vercel.app/api/eventos/${id}`, {
           method: "DELETE",
         });
 
@@ -100,7 +100,7 @@ function SubidaDeEventos() {
     });
 
     try {
-      const res = await fetch("http://localhost:5000/api/eventos", {
+      const res = await fetch("https://tienda-backend-eta.vercel.app/api/eventos", {
         method: "POST",
         body: formData,
       });
@@ -147,7 +147,7 @@ function SubidaDeEventos() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/eventos/${eventoEditando._id}`,
+        `https://tienda-backend-eta.vercel.app/api/eventos/${eventoEditando._id}`,
         {
           method: "PUT",
           body: formData,
@@ -194,7 +194,7 @@ function SubidaDeEventos() {
             <div key={event._id} className="event-card">
               {event.imagePath ? (
                 <img
-                  src={`http://localhost:5000/${event.imagePath.replace(
+                  src={`https://tienda-backend-eta.vercel.app/${event.imagePath.replace(
                     /\\/g,
                     "/"
                   )}`}
