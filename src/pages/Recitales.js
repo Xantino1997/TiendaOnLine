@@ -64,7 +64,7 @@ const Recitales = ({ carrito, setCarrito, setMostrarCarrito }) => {
             {eventosActuales.map((evento, index) => (
               <div key={index} className="espectaculo-card">
                 <img
-                  src={`http://localhost:5000/${evento.imagePath}`}
+                  src={`${evento.imagePath}`}
                   alt={evento.title}
                   className="espectaculo-image"
                 />
