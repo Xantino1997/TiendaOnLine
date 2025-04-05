@@ -79,7 +79,7 @@ const HomePage = ({ carrito, setCarrito }) => {
         <h2 className="section-title">Eventos Destacados</h2>
         <div className="event-grid">
           {eventosActuales.map((event) => (
-            <EventCard
+            <EventCard className="event-card"
               key={event._id}
               event={{
                 ...event,
