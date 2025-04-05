@@ -9,7 +9,7 @@ const Recitales = ({ carrito, setCarrito, setMostrarCarrito }) => {
   const eventosPorPagina = 3;
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/eventos")
+    fetch("https://tienda-backend-eta.vercel.app/api/eventos")
       .then((res) => res.json())
       .then((data) => {
         const filtrados = data.filter(
