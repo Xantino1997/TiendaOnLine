@@ -242,7 +242,7 @@ function SubidaDeEventos() {
               eventoEditando && eventoEditando.image instanceof File
                 ? URL.createObjectURL(eventoEditando.image)
                 : eventoEditando && typeof eventoEditando.image === "string"
-                ? `http://localhost:5000/${eventoEditando.image.replace(
+                ? `${eventoEditando.image.replace(
                     /\\/g,
                     "/"
                   )}`
