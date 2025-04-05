@@ -127,7 +127,7 @@ function App() {
                     {carrito.map((item, index) => (
                       <li key={index} className="carrito-item">
                         <img
-                          src={item.image || `http://tienda-backend-eta.vercel.app/${item.imagePath}`}
+                          src={item.image || `${item.imagePath}`}
                           alt={item.title}
                           className="carrito-img"
                         />
