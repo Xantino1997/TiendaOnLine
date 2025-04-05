@@ -17,7 +17,7 @@ const EventCard = ({ event, onAddToCart }) => {
 
   // Manejo seguro del path de la imagen
   const imageUrl = event?.imagePath
-    ? `http://localhost:5000/${event.imagePath.replace(/\\/g, "/")}`
+    ? `https://tienda-backend-eta.vercel.app/${event.imagePath.replace(/\\/g, "/")}`
     : "https://via.placeholder.com/300x200?text=Sin+imagen";
 
   return (
