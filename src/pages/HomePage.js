@@ -79,23 +79,15 @@ const HomePage = ({ carrito, setCarrito }) => {
         <h2 className="section-title">Eventos Destacados</h2>
         <div className="event-grid">
           {eventosActuales.map((event) => (
-            // <EventCard
-            //   key={event._id}
-            //   event={{
-            //     ...event,
-            //     image: `https://tienda-backend-eta.vercel.app/${event.imagePath}`,
-            //   }}
-            //   onAddToCart={handleAgregarAlCarrito}
-            // />
-
             <EventCard
-      key={event._id}
-      event={{
-        ...event,
-        image: `https://tienda-backend-eta.vercel.app/${event.imagePath}`,
-      }}
-      onAddToCart={handleAgregarAlCarrito}
-    />
+              key={event._id}
+              event={{
+                ...event,
+                image: `${event.imagePath}`,
+              }}
+              onAddToCart={handleAgregarAlCarrito}
+            />
+
           ))}
         </div>
 
