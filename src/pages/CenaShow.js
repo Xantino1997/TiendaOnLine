@@ -64,7 +64,7 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
             {eventosActuales.map((evento, index) => (
               <div key={index} className="espectaculo-card">
                 <img
-                  src={`https://tienda-backend-eta.vercel.app/${evento.imagePath}`}
+                  src={`${evento.imagePath}`}
                   alt={evento.title}
                   className="espectaculo-image"
                 />
