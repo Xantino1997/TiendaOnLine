@@ -1,0 +1,90 @@
+/* Login.css */
+
+body {
+    background-color: #0e0e0e;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle at top left, #1f1f1f, #000000);
+  }
+  
+  .login-form {
+    background-color: #1a1a1a;
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 0 15px #00ffff33, 0 0 40px #00ffff22;
+    width: 100%;
+    max-width: 400px;
+    color: #e0e0e0;
+  }
+  
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #00f0ff;
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #2b2b2b;
+    color: #fff;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .login-form input:focus {
+    box-shadow: 0 0 8px #00ffffcc;
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #00f0ff;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .login-form button:hover {
+    background-color: #00e0ee;
+    box-shadow: 0 0 12px #00f0ff;
+  }
+  
+  .login-form .register-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: #888;
+  }
+  
+  .login-form .register-link a {
+    color: #00f0ff;
+    text-decoration: none;
+  }
+  
+  .login-form .register-link a:hover {
+    text-decoration: underline;
+  }
+  
