@@ -98,7 +98,29 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
                   className="espectaculo-image"
                 />
                 <h3 className="espectaculo-title">{evento.title}</h3>
-                <p className="espectaculo-date">{evento.date}</p>
+                <div style={{ textAlign: "center", lineHeight: "1.2" }}>
+                  <div style={{ color: "#00bcd4", fontSize: "14px" }}>
+                    {formatDay(evento?.date)}
+                  </div>
+                  <div
+                    style={{
+                      color: "red",
+                      fontSize: "48px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {formatDayNumber(evento?.date)}
+                  </div>
+                  <div
+                    style={{
+                      color: "#00bcd4",
+                      fontWeight: "bold",
+                      fontSize: "14px",
+                    }}
+                  >
+                    de {formatYear(evento?.date)}
+                  </div>
+                </div>
                 <p className="espectaculo-price">
                   {evento.price ? `$${evento.price}` : "Gratis"}
                 </p>
