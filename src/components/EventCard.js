@@ -37,15 +37,16 @@ const EventCard = ({ event, onAddToCart }) => {
     ? event.imagePath
     : "https://via.placeholder.com/300x200?text=Sin+imagen";
 
-  const handleShare = () => {
-    const url = window.location.href; // podés reemplazar con un link personalizado al evento
-    const mensaje = `Veni a disfrutar de este evento: ${url} — "${event.title}", Mi entrada Ya los mejores eventos`;
-    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
-    window.open(whatsappURL, "_blank");
-  };
+    const handleShare = () => {
+      const url = window.location.href; // podés personalizar el link al evento si tenés uno
+      const mensaje = `*¡Vení a disfrutar conmigo!*\n\nTe comparto este evento:\n"${event.title}"\n\nFecha: ${formatDay(event?.date)} ${formatDayNumber(event?.date)} de ${formatYear(event?.date)}\n\n_Conseguí tu entrada ya_: ${url}`;
+      const whatsappURL = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
+      window.open(whatsappURL, "_blank");
+    };
+    
 
   return (
-    <div className="event-card">
+    <div className="event-card-uni">
       <img
         src={imageUrl}
         alt={event?.title || "Evento sin título"}
@@ -80,4 +81,3 @@ const EventCard = ({ event, onAddToCart }) => {
 };
 
 export default EventCard;
-
