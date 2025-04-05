@@ -57,7 +57,7 @@ const Espectaculos = ({ carrito, setCarrito, setMostrarCarrito }) => {
       ) : eventos.length === 0 ? (
         <div className="sin-eventos">
           <h2>Por ahora no hay espectáculos disponibles</h2>
-          <img src="/img/humo.gif" alt="Humo" className="humo-fondo" />
+          <img src="./images/HUMO.PNG" alt="Humo" className="humo-fondo" />
         </div>
       ) : (
         <>
