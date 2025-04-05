@@ -6,7 +6,8 @@
   justify-items: center;
   align-items: stretch;
 }
-.event-card {
+.event-card-uni{
+  background: rgb(255, 244, 244);
   border: 1px solidrgb(198, 35, 35);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgb(255, 244, 244);
@@ -88,6 +89,7 @@
   @media (max-width: 768px) {
     .event-card {
       padding: 12px;
+      
     }
   
     .event-image {
@@ -104,7 +106,6 @@
     }
   }
   
-
   .share-button {
     background-color: #25d366;
     color: white;
