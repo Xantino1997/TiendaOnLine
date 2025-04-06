@@ -15,18 +15,25 @@ const EventCard = ({ event, onAddToCart }) => {
     });
   };
 
+ 
   function formatDay(dateString) {
     if (!dateString) return "Próximamente";
-    const date = new Date(dateString);
+    const date = new Date(dateString + "T00:00:00");
     return date.toLocaleDateString("es-AR", { weekday: "short" });
   }
 
   function formatDayNumber(dateString) {
     if (!dateString) return "";
-    const date = new Date(dateString);
-    return date.getDate().toString().padStart(2, "0");
+    const date = new Date(dateString + "T00:00:00");
+    return String(date.getDate()).padStart(2, "0");
   }
-
+  function formatMonth(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleString('es-AR', { month: 'short' }).charAt(0).toUpperCase() + 
+           date.toLocaleString('es-AR', { month: 'short' }).slice(1);
+  }
+  
   function formatYear(dateString) {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -39,7 +46,7 @@ const EventCard = ({ event, onAddToCart }) => {
 
     const handleShare = () => {
       const url = window.location.href; // podés personalizar el link al evento si tenés uno
-      const mensaje = `*¡Vení a disfrutar conmigo!*\n\nTe comparto este evento:\n"${event.title}"\n\nFecha: ${formatDay(event?.date)} ${formatDayNumber(event?.date)} de ${formatYear(event?.date)}\n\n_Conseguí tu entrada ya_: ${url}\n\nLos Mejores Shows los tenés con Mi Entrada Ya`;
+      const mensaje = `*¡Vení a disfrutar conmigo!*\n\nTe comparto este evento:\n"${event.title}"\n\nFecha: ${formatDay(event?.date)} ${formatDayNumber(event?.date)} de ${formatYear(event?.date)}\n\n_Conseguí tu entrada ya_: ${url}`;
       const whatsappURL = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
       window.open(whatsappURL, "_blank");
     };
@@ -63,6 +70,10 @@ const EventCard = ({ event, onAddToCart }) => {
         </div>
         <div style={{ color: "red", fontSize: "48px", fontWeight: "bold" }}>
           {formatDayNumber(event?.date)}
+        </div>
+      
+        <div style={{ color: "red", fontSize: "48px", fontWeight: "bold" }}>
+          {formatMonth(event?.date)}
         </div>
         <div style={{ color: "#00bcd4", fontWeight: "bold", fontSize: "14px" }}>
           de {formatYear(event?.date)}
