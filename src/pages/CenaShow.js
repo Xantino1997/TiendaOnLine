@@ -40,16 +40,22 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
 
    function formatDay(dateString) {
     if (!dateString) return "Próximamente";
-    const date = new Date(dateString);
+    const date = new Date(dateString + "T00:00:00");
     return date.toLocaleDateString("es-AR", { weekday: "short" });
   }
 
   function formatDayNumber(dateString) {
     if (!dateString) return "";
-    const date = new Date(dateString);
-    return date.getDate().toString().padStart(2, "0");
+    const date = new Date(dateString + "T00:00:00");
+    return String(date.getDate()).padStart(2, "0");
   }
-
+  function formatMonth(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleString('es-AR', { month: 'short' }).charAt(0).toUpperCase() + 
+           date.toLocaleString('es-AR', { month: 'short' }).slice(1);
+  }
+  
   function formatYear(dateString) {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -62,7 +68,7 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
       evento.title
     }"\n\nFecha: ${formatDay(evento?.date)} ${formatDayNumber(
       evento?.date
-    )} de ${formatYear(evento?.date)}\n\n_Conseguí tu entrada ya_: ${url}\n\nLos Mejores Shows los tenés con Mi Entrada Ya`;
+    )} de ${formatYear(evento?.date)}\n\n_Conseguí tu entrada ya_: ${url}`;
     const whatsappURL = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
     window.open(whatsappURL, "_blank");
   };
@@ -73,7 +79,8 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
   const totalPaginas = Math.ceil(eventos.length / eventosPorPagina);
 
   const irAPagina = (nro) => setPaginaActual(nro);
-  const siguiente = () => paginaActual < totalPaginas && setPaginaActual(paginaActual + 1);
+  const siguiente = () =>
+    paginaActual < totalPaginas && setPaginaActual(paginaActual + 1);
   const anterior = () => paginaActual > 1 && setPaginaActual(paginaActual - 1);
 
   return (
@@ -85,7 +92,7 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
       ) : eventos.length === 0 ? (
         <div className="sin-eventos">
           <h2>Por ahora no hay Cena Show disponibles</h2>
-          <img src="./images/HUMO.PNG" alt="Humo" className="humo-fondo" />
+          <img src="/img/humo.gif" alt="Humo" className="humo-fondo" />
         </div>
       ) : (
         <>
@@ -113,6 +120,15 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
                   </div>
                   <div
                     style={{
+                      color: "red",
+                      fontSize: "48px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {formatMonth(evento?.date)}
+                  </div>
+                  <div
+                    style={{
                       color: "#00bcd4",
                       fontWeight: "bold",
                       fontSize: "14px",
@@ -131,15 +147,19 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
                   Agregar al Carrito 🛒
                 </button>
                 <button
-  onClick={() => handleShare(evento)}
-  className="share-button"
->📲 Compartir por WhatsApp</button>
+                  onClick={() => handleShare(evento)}
+                  className="share-button"
+                >
+                  📲 Compartir por WhatsApp
+                </button>
               </div>
             ))}
           </div>
 
           <div className="paginacion">
-            <button onClick={anterior} disabled={paginaActual === 1}>◀ Anterior</button>
+            <button onClick={anterior} disabled={paginaActual === 1}>
+              ◀ Anterior
+            </button>
             {[...Array(totalPaginas)].map((_, i) => (
               <button
                 key={i}
@@ -149,7 +169,10 @@ const CenaShow = ({ carrito, setCarrito, setMostrarCarrito }) => {
                 {i + 1}
               </button>
             ))}
-            <button onClick={siguiente} disabled={paginaActual === totalPaginas}>
+            <button
+              onClick={siguiente}
+              disabled={paginaActual === totalPaginas}
+            >
               Siguiente ▶
             </button>
           </div>
