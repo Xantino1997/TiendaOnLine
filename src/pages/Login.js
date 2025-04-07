@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 👈 Importá esto
+import { useNavigate } from "react-router-dom"; // 👈 Importar esto
 import "../css/Login.css";
 
 function Login({ setIsLoggedIn }) {
@@ -55,7 +55,8 @@ function Login({ setIsLoggedIn }) {
         <button type="submit">Ingresar</button>
 
         <div className="register-link">
-          ¿No tenés cuenta? <a href="/register">Registrate acá</a>
+          ¿No tenés cuenta? <a href="/register">Registrate acá</a><br></br>
+          ¿Olvidaste tu contraseña? <a href="/restablecer">Restablece acá</a>
         </div>
       </form>
     </div>
