@@ -33,7 +33,7 @@ const HomePage = ({ carrito, setCarrito }) => {
   useEffect(() => {
     const fetchEventos = async () => {
       try {
-        const res = await fetch("http://localhost:5000/eventos");
+        const res = await fetch("https://tienda-backend-eta.vercel.app/api/eventos");
         const data = await res.json();
         setEventos(data);
       } catch (err) {
