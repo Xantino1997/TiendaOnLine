@@ -9,6 +9,8 @@ import Espectaculos from "./pages/Espectaculos";
 import Recitales from "./pages/Recitales";
 import CenaShow from "./pages/CenaShow";
 import Login from "./pages/Login";
+import Restablecer from "./pages/Restablecer";
+import ResetPassword from "./pages/ResetPassword";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -74,6 +76,8 @@ function App() {
               element={<Login setIsLoggedIn={setIsLoggedIn} />}
             />
             <Route path="/register" element={<Register />} />
+            <Route path="/restablecer" element={<Restablecer />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route
               path="/espectaculos"
               element={
@@ -127,7 +131,7 @@ function App() {
                     {carrito.map((item, index) => (
                       <li key={index} className="carrito-item">
                         <img
-                          src={item.image || `${item.imagePath}`}
+                          src={item.image || `http://localhost:5000/${item.imagePath}`}
                           alt={item.title}
                           className="carrito-img"
                         />
