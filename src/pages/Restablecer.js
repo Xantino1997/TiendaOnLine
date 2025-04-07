@@ -13,7 +13,7 @@ const RestablecerPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/reset-password-request", {
+      const response = await fetch("https://tienda-backend-eta.vercel.app/api/reset-password-request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
