@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 👈 Importar esto
+import { useNavigate } from "react-router-dom"; // 👈 Importá esto
 import "../css/Login.css";
 
 function Login({ setIsLoggedIn }) {
